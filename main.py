@@ -54,7 +54,7 @@ async def game_search_cmd(msg: Message,game_name:str):
             text+= f"共「{len(target_games)}」个结果"
             # 更多游戏信息参考 https://developer.kookapp.cn/doc/http/game 对 game 对象的定义
             # 机器只需要获取到 game.id ，就能上在玩状态
-            await msg.reply(text)
+            await msg.reply(text+'\n该 Bot 由 hejiehao 制作')
     except:
         print(traceback.format_exc())  # 如果出现异常，打印错误
 
@@ -78,7 +78,7 @@ async def game_create_cmd(msg: Message, name: str, icon=None):
         text += f"名字：{game.name}\n"
         text += f"类型：{game.type}\n"
         text += "```\n"
-        await msg.reply(text)
+        await msg.reply(text+'\n该 Bot 由 hejiehao 制作')
     except:
         print(traceback.format_exc())  # 如果出现异常，打印错误
 
@@ -88,7 +88,7 @@ async def game_up_cmd(msg: Message, game_id: int):
         print("get /game-up cmd")
         # 传入 Game 对象，或者游戏的ID
         await bot.client.update_playing_game(game_id)
-        await msg.reply(f"游戏「{game_id}」上线")
+        await msg.reply(f"游戏「{game_id}」上线\n该 Bot 由 hejiehao 制作")
     except:
         print(traceback.format_exc())  # 如果出现异常，打印错误
 
@@ -101,7 +101,7 @@ async def music_up_cmd(msg: Message, name: str, singer: str):
         platfrom = SoftwareTypes.KUGOU_MUSIC  # 酷狗音乐
         # 传入歌名，歌手，音乐平台
         await bot.client.update_listening_music(name, singer, platfrom)
-        await msg.reply(f"开始听歌\n歌名：{name}\n歌手：{singer}")
+        await msg.reply(f"开始听歌\n歌名：{name}\n歌手：{singer}\n该 Bot 由 hejiehao 制作")
     except:
         print(traceback.format_exc())  # 如果出现异常，打印错误
 
@@ -110,7 +110,7 @@ async def music_down_cmd(msg: Message):
     try:
         print("get /music-down cmd")
         await bot.client.stop_listening_music()
-        await msg.reply(f"听歌状态下线")
+        await msg.reply(f"听歌状态下线\n该 Bot 由 hejiehao 制作")
     except:
         print(traceback.format_exc())  # 如果出现异常，打印错误
 
@@ -119,7 +119,7 @@ async def game_down_cmd(msg: Message):
     try:
         print("get /game-down cmd")
         await bot.client.stop_playing_game()
-        await msg.reply(f"游戏状态下线")
+        await msg.reply(f"游戏状态下线\n该 Bot 由 hejiehao 制作")
     except:
         print(traceback.format_exc())  # 如果出现异常，打印错误
 
